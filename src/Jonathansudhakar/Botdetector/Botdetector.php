@@ -3,7 +3,7 @@
 class Botdetector {
 
   public static function detect(){
-    return false;
+    return true;
   }
 
 }
