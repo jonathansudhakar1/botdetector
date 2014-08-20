@@ -1,0 +1,23 @@
+{
+    "name": "jonathansudhakar/botdetector",
+    "description": "Bot detector for Laravel 4",
+    "authors": [
+        {
+            "name": "Jonathan Sudhakar",
+            "email": "jonathan.bangalore@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Jonathansudhakar\\Botdetector\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
