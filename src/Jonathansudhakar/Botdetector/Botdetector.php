@@ -1,18 +1,20 @@
 <?php namespace Jonathansudhakar\Botdetector;
 
+use Config;
+
 class Botdetector {
 
   public static function detect(){
-    return $this->detectBot();
+    return Botdetector::detectBot();
   }
 
   private static function detectBot()
   {
-    $useragent = (Request::server('HTTP_USER_AGENT')==NULL?'':Request::server('HTTP_USER_AGENT'));
+    $useragent = ($_SERVER['HTTP_USER_AGENT']==NULL?'':$_SERVER['HTTP_USER_AGENT']);
 
-    $humans = Config::get('config.humans');
+    $humans = Config::get('botdetector::humans');
 
-    return in_array($useragent , $humans);
+    return (!in_array($useragent , $humans));
   }
 
 }
