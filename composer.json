@@ -1,6 +1,8 @@
 {
     "name": "jonathansudhakar/botdetector",
     "description": "Bot detector for Laravel 4",
+    "version": "0.1",
+    "keywords": ["laravel", "user-agent", "robot", "bot", "jonathan", "sudhakar", "detector"],
     "authors": [
         {
             "name": "Jonathan Sudhakar",
