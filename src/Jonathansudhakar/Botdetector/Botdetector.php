@@ -1,20 +1,47 @@
-<?php namespace Jonathansudhakar\Botdetector;
+<?php
 
-use Config;
+namespace Jonathansudhakar\Botdetector;
 
-class Botdetector {
+class Botdetector
+{
 
-  public static function detect(){
-    return Botdetector::detectBot();
+  public static function detect($userAgent = null)
+  {
+      if(is_null($userAgent))
+      {
+          $agent = new UserAgent((!isset($_SERVER['HTTP_USER_AGENT']) || is_null($_SERVER['HTTP_USER_AGENT'])) ? "" : $_SERVER['HTTP_USER_AGENT']);
+      }
+      else
+      {
+          $agent = new UserAgent($userAgent);
+      }
+      return $agent;
   }
 
-  private static function detectBot()
+  public static function isBot($userAgent = null)
   {
-    $useragent = ($_SERVER['HTTP_USER_AGENT']==NULL?'':$_SERVER['HTTP_USER_AGENT']);
+      if(is_null($userAgent))
+      {
+          $agent = new UserAgent((!isset($_SERVER['HTTP_USER_AGENT']) || is_null($_SERVER['HTTP_USER_AGENT'])) ? "" : $_SERVER['HTTP_USER_AGENT']);
+      }
+      else
+      {
+          $agent = new UserAgent($userAgent);
+      }
+      return $agent->isBot();
+  }
 
-    $humans = Config::get('botdetector::humans');
-
-    return (!in_array($useragent , $humans));
+  public static function isHuman($userAgent = null)
+  {
+      if(is_null($userAgent))
+      {
+          $agent = new UserAgent((!isset($_SERVER['HTTP_USER_AGENT']) || is_null($_SERVER['HTTP_USER_AGENT'])) ? "" : $_SERVER['HTTP_USER_AGENT']);
+      }
+      else
+      {
+          $agent = new UserAgent($userAgent);
+      }
+      return $agent->isHuman();
   }
 
 }
