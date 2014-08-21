@@ -2,6 +2,7 @@
     "name": "jonathansudhakar/botdetector",
     "description": "Bot detector for Laravel 4",
     "version": "0.8",
+    "license": "MIT",
     "keywords": ["laravel", "user-agent", "robot", "bot", "jonathan", "sudhakar", "detector"],
     "authors": [
         {

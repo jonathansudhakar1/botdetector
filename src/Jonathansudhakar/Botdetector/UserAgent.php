@@ -32,7 +32,7 @@ class UserAgent
 
     public function getAgent()
     {
-        return $this->$_userAgent;
+        return $this->_userAgent;
     }
 
     public function isBot()
@@ -42,9 +42,14 @@ class UserAgent
             return $this->_isNullBot;
         }
 
-        if(preg_match('/bot|crawl|slurp|spider/i', $this->_userAgent))
+        if(preg_match('/bot|crawl|slurp|spider/i', $this->_userAgent) && !$this->_ignoreDefault)
         {
             return true;
+        }
+
+        if(preg_match('/Chrome\/|Firefox\/|Safari\//i', $this->_userAgent) && !$this->_ignoreDefault)
+        {
+            return false;
         }
 
         if($this->_useHumanData)
@@ -84,7 +89,7 @@ class UserAgent
         }
         else
         {
-            return $this->_humamData;
+            return $this->_humanData;
         }
     }
 
