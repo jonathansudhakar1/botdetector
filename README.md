@@ -1,13 +1,32 @@
-UNDER DEVELOPMENT
+## Robot detector for Laravel
+***
 
-<h2>
-Install
-</h2>
+## Installation
 
-<p>
-composer.json:
-<br/>
+Add to composer.json:
+```
 require: "jonathansudhakar/botdetector": "dev-master"
-<br/><br/>
-Add 'Jonathansudhakar\Botdetector\BotdetectorServiceProvider' to list of providers in config/app.php
-</p>
+```
+
+Add config/app.php
+```
+'Jonathansudhakar\Botdetector\BotdetectorServiceProvider'
+```
+
+## Basic Usage
+***
+Detect if the the current request is a bot
+```
+Botdetector::isBot(); // returns true or false
+Botdetector::detect()->isBot(); // returns true or false
+```
+Detect if the the current request is human
+```
+Botdetector::isHuman(); // returns true or false
+Botdetector::detect()->isHuman(); // returns true or false
+```
+Detect if the a user-agent string is a bot (or Human)
+```
+Botdetector::isBot("user-agent-string"); // returns true or false
+Botdetector::detect("user-agent-string")->isBot(); // returns true or false
+```
